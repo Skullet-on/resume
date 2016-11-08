@@ -25,6 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 
 gem 'devise'
+gem 'bootstrap-sass'
+gem 'sass-rails', '~>5.0'
+gem 'bootstrap-sass-extras'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
