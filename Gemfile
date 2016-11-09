@@ -26,8 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'bootstrap-sass'
-gem 'sass-rails', '~>5.0'
 gem 'bootstrap-sass-extras'
+gem 'devise-bootstrap-views'
 
 
 group :development, :test do

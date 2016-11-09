@@ -1,0 +1,15 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=t '.title', default: model_class.model_name.human.titleize %></h1>
+</div>
+
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:first_name) %></dt>
+      <dd><pre class="prettyprint"><%= @user.first_name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:last_name) %></dt>
+      <dd><pre class="prettyprint"><%= @user.last_name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:email) %></dt>
+      <dd><pre class="prettyprint"><%= @user.email %></pre></dd>
+  </dl>
+</div>
