@@ -1,12 +1,35 @@
 <%- model_class = User -%>
+<%- model_class = Skill -%>
 <div class="container-fluid bg-1 text-center">
   <h3>Who Am I?</h3>
   <%= image_tag @user.image.url(:thumb), class: "img-circle" %>
   <h3>I'm a <%= @user.first_name %> <%= @user.last_name %></h3>
 </div>
-<div class="container-fluid bg-2 text-center">
-  <h3>What Am I?</h3>
-  <p>My name is <%= @user.first_name %> and i am a Ruby on Rails developer. I was born on the <%= @user.birthday.day %>th of <%= @user.birthday.month %> of <%= @user.birthday.year %> in <%= @user.country %></p>
+<div class="container-fluid bg-2">
+  <h3 class="text-center">Skills</h3>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Technology</th>
+            <th>Years of Experience</th>
+            <th>Proficiency</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @user.skills.each do |i| %>
+          <tr>
+            <td><%= i.technology %></td>
+            <td><%= i.exp %></td>
+            <td><%= i.proficiency %></td>
+            <td><%= link_to "Edit", edit_skill_path(i), class: 'btn btn-primary' %></td>
+            <td><%= link_to "Destroy", skill_path(i), method: 'delete', data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger' %></td>
+          </tr>
+        <% end %>
+        </tbody>
+    </table>
+    <%= render partial: "skills/form" %>
+    </div>
 </div>
 
 <div class="container-fluid bg-3">
