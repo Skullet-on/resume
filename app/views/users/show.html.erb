@@ -1,15 +1,18 @@
 <%- model_class = User -%>
-<div class="page-header">
-  <h1><%=t '.title', default: model_class.model_name.human.titleize %></h1>
+<div class="container-fluid bg-1 text-center">
+  <h3>Who Am I?</h3>
+  <%= image_tag @user.image.url(:thumb), class: "img-circle" %>
+  <h3>I'm a <%= @user.first_name %> <%= @user.last_name %></h3>
+</div>
+<div class="container-fluid bg-2 text-center">
+  <h3>What Am I?</h3>
+  <p>My name is <%= @user.first_name %> and i am a Ruby on Rails developer. I was born on the <%= @user.birthday.day %>th of <%= @user.birthday.month %> of <%= @user.birthday.year %> in <%= @user.country %></p>
 </div>
 
-<div class="fieldset">
-  <dl>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:first_name) %></dt>
-      <dd><pre class="prettyprint"><%= @user.first_name %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:last_name) %></dt>
-      <dd><pre class="prettyprint"><%= @user.last_name %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:email) %></dt>
-      <dd><pre class="prettyprint"><%= @user.email %></pre></dd>
-  </dl>
+<div class="container-fluid bg-3">
+  <h3>How To Find Me?</h3>
+  <p>Phone: <%= @user.phone %></p>
+  <p>Email: <%= @user.email %></p>
+  <p>Skype: <%= @user.skype %></p>
+  <p>GitHub: <%= @user.git %></p>
 </div>

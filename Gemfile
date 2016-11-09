@@ -28,6 +28,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'devise-bootstrap-views'
+gem 'paperclip'
 
 
 group :development, :test do

@@ -1,5 +1,11 @@
 <%= form_for @user, html: { class: 'form-horizontal', multipart: true } do |f| %>
   <div class="form-group">
+    <%= f.label :image, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.file_field :image, class: 'file_field' %>
+    </div>
+  </div>
+  <div class="form-group">
     <%= f.label :email, class: 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :email, class: 'text_field form-control' %>
