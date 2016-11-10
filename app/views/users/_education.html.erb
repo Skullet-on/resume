@@ -1,0 +1,17 @@
+<% @user.educations.each do |i| %>
+  <dl class="dl-horizontal">
+    <dt class="primary">Date</dt>
+    <dd><%= i.date_start.strftime("%B  %Y") %> - <%= i.date_finish.strftime("%B  %Y") %></dd>
+    <dt class="primary">Organisation</dt>
+    <dd><%= i.organization %></dd>
+    <dt class="primary">Qualification</dt>
+    <dd><%= i.qualification %></dd>
+    <dt class="primary">Major</dt>
+    <dd><%= i.major %></dd>
+    <dt class="primary">Other</dt>
+    <dd><%= i.other %></dd>
+    <dt class="primary">Action</dt>
+    <dd><%= link_to "Edit", edit_education_path(i), class: 'btn btn-primary btn-xs' %>
+    <%= link_to "Destroy", education_path(i), method: 'delete', data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger btn-xs' %></dd>
+  </dl>
+<% end %>

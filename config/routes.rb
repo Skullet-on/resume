@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :educations
+  resources :employs
   resources :skills
   root 'welcome#index'
 

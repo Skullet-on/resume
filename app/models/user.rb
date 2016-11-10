@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   has_many :skills
+  has_many :employs
+  has_many :educations
 end
