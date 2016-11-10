@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   has_many :employs
   has_many :educations
   has_many :courses
+  has_many :languages
 end

@@ -2,10 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .primary {
-  background-color: #555;
   color: #fff;
   border: none;
 }
-.border {
-  border: 3px !important;
+.position_right {
+  float: right;
+}
+dl {
+  background-color: #999;
+}
+dt {
+  background-color: #555;
+}
+dd {
+  background-color: #999;
 }
