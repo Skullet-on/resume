@@ -8,8 +8,10 @@
     <dd><%= i.position %></dd>
     <dt class="primary">Responsibility</dt>
     <dd><%= i.responsibility %></dd>
-    <dt class="primary">Action</dt>
-    <dd><%= link_to "Edit", edit_employ_path(i), class: 'btn btn-primary btn-xs' %>
-    <%= link_to "Destroy", employ_path(i), method: 'delete', data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger btn-xs' %></dd>
+    <% if can? :edit, @user %>
+      <dt class="primary">Action</dt>
+      <dd><%= link_to "Edit", edit_employ_path(i), class: 'btn btn-primary btn-xs' %>
+      <%= link_to "Destroy", employ_path(i), method: 'delete', data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger btn-xs' %></dd>
+    <% end %>
   </dl>
 <% end %>

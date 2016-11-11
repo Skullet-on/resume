@@ -10,7 +10,9 @@
   <h3 class="text-center">Skills</h3>
   <div class="container">
     <%= render partial: "skill" %>
+  <% if can? :edit, @user %>
     <%= render partial: "skills/form" %>
+  <% end %>
   </div>
 </div>
 
@@ -18,7 +20,9 @@
   <h3 class="text-center">Employment History</h3>
   <div class="container">
     <%= render partial: "employ" %>
-    <%= link_to 'Add Work', new_employ_path, class: "form-control" %><br>
+    <% if can? :edit, @user %>
+      <%= link_to 'Add Work', new_employ_path, class: "form-control" %><br>
+    <% end %>
   </div>
 </div>
 
@@ -26,7 +30,9 @@
   <h3 class="text-center">Education</h3>
   <div class="container">
     <%= render partial: "education" %>
-    <%= link_to 'Add Education', new_education_path, class: "form-control" %><br>
+    <% if can? :edit, @user %>
+      <%= link_to 'Add Education', new_education_path, class: "form-control" %><br>
+    <% end %>
   </div>
 </div>
 
@@ -34,7 +40,9 @@
   <h3 class="text-center">Courses and Certificates</h3>
   <div class="container">
     <%= render partial: "course" %>
-    <%= link_to 'Add Course', new_course_path, class: "form-control" %><br>
+    <% if can? :edit, @user %>
+      <%= link_to 'Add Course', new_course_path, class: "form-control" %><br>
+    <% end %>
   </div>
 </div>
 
@@ -42,7 +50,9 @@
   <h3 class="text-center">Languages</h3>
   <div class="container">
     <%= render partial: "language" %>
-    <%= link_to 'Add Language', new_language_path, class: "form-control" %><br>
+    <% if can? :edit, @user %>
+      <%= link_to 'Add Language', new_language_path, class: "form-control" %><br>
+    <% end %>
   </div>
 </div>
 

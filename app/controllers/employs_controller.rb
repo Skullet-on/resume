@@ -5,11 +5,13 @@ class EmploysController < ApplicationController
   # GET /employs.json
   def index
     @employs = Employ.all
+    authorize! :edit, @employ
   end
 
   # GET /employs/1
   # GET /employs/1.json
   def show
+    authorize! :edit, @employ
   end
 
   # GET /employs/new
@@ -19,6 +21,7 @@ class EmploysController < ApplicationController
 
   # GET /employs/1/edit
   def edit
+    authorize! :edit, @employ
   end
 
   # POST /employs

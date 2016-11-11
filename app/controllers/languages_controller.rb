@@ -5,11 +5,13 @@ class LanguagesController < ApplicationController
   # GET /languages.json
   def index
     @languages = Language.all
+    authorize! :edit, @language
   end
 
   # GET /languages/1
   # GET /languages/1.json
   def show
+    authorize! :edit, @language
   end
 
   # GET /languages/new
@@ -19,6 +21,7 @@ class LanguagesController < ApplicationController
 
   # GET /languages/1/edit
   def edit
+    authorize! :edit, @language
   end
 
   # POST /languages

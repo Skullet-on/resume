@@ -5,11 +5,13 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     @courses = Course.all
+    authorize! :edit, @course
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
+    authorize! :edit, @course
   end
 
   # GET /courses/new
@@ -19,6 +21,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
+    authorize! :edit, @course
   end
 
   # POST /courses

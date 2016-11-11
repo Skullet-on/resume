@@ -29,6 +29,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'devise-bootstrap-views'
 gem 'paperclip'
+gem "cancan"
 
 
 group :development, :test do

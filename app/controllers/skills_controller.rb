@@ -5,11 +5,13 @@ class SkillsController < ApplicationController
   # GET /skills.json
   def index
     @skills = Skill.all
+    authorize! :edit, @skill
   end
 
   # GET /skills/1
   # GET /skills/1.json
   def show
+    authorize! :edit, @skill
   end
 
   # GET /skills/new
@@ -19,6 +21,7 @@ class SkillsController < ApplicationController
 
   # GET /skills/1/edit
   def edit
+    authorize! :edit, @skill
   end
 
   # POST /skills

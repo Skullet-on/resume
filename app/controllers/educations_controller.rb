@@ -5,11 +5,13 @@ class EducationsController < ApplicationController
   # GET /educations.json
   def index
     @educations = Education.all
+    authorize! :edit, @education
   end
 
   # GET /educations/1
   # GET /educations/1.json
   def show
+    authorize! :edit, @education
   end
 
   # GET /educations/new
@@ -19,6 +21,7 @@ class EducationsController < ApplicationController
 
   # GET /educations/1/edit
   def edit
+    authorize! :edit, @education
   end
 
   # POST /educations

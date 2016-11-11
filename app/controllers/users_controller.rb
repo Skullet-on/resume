@@ -1,14 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  
+
   def show
     @skill = Skill.new
   end
 
   def edit
+    authorize! :edit, @user
   end
 
   def update
+    authorize! :edit, @user
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
