@@ -1,3 +1,20 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.bg-1 { 
+    background-color: #0ece91; /* Green */
+    background: linear-gradient(to top, #75adea, #2f413f);
+    //background: url(metal.jpg);
+    color: #ffffff;
+}
+.bg-2 { 
+    background-color: #75adea; /* Dark Blue */
+    //background: linear-gradient(to top, #0e6b3b, #75adea);
+    background: linear-gradient(to top, #2f413f, #2f413f);
+    color: #ffffff;
+}
+.bg-3 { 
+    background-color: #ffffff; /* White */
+    //background: linear-gradient(to top, #000000, #75adea);
+    color: #ffffff;
+}

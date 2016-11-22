@@ -1,0 +1,55 @@
+<div class="container-fluid bg-1 text-center">
+  <h3>Who Am I?</h3>
+  <%= image_tag @user.image.url(:medium), class: "img-circle" %>
+  <h3>I'm a <%= @user.first_name %> <%= @user.last_name %></h3>
+</div>
+
+<div class="container-fluid bg-2">
+  <h3 class="text-center">Skills</h3>
+  <div class="container">
+    <%= render partial: "skill" %>
+  <% if can? :edit, @user %>
+    <%= render partial: "skills/form" %>
+  <% end %>
+  </div>
+
+  <h3 class="text-center">Employment History</h3>
+  <div class="container">
+    <%= render partial: "employ" %>
+    <% if can? :edit, @user %>
+      <%= link_to 'Add Work', new_employ_path, class: "btn btn-default btn-xs" %><br>
+    <% end %>
+  </div>
+
+  <h3 class="text-center">Education</h3>
+  <div class="container">
+    <%= render partial: "education" %>
+    <% if can? :edit, @user %>
+      <%= link_to 'Add Education', new_education_path, class: "btn btn-default btn-xs" %><br>
+    <% end %>
+  </div>
+
+  <h3 class="text-center">Courses and Certificates</h3>
+  <div class="container">
+    <%= render partial: "course" %>
+    <% if can? :edit, @user %>
+      <%= link_to 'Add Course', new_course_path, class: "btn btn-default btn-xs" %><br>
+    <% end %>
+  </div>
+
+  <h3 class="text-center">Languages</h3>
+  <div class="container">
+    <%= render partial: "language" %>
+    <% if can? :edit, @user %>
+      <%= render partial: "languages/form" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container-fluid bg-3">
+  <h3>How To Find Me?</h3>
+  <p>Phone: <%= @user.phone %></p>
+  <p>Email: <%= @user.email %></p>
+  <p>Skype: <%= @user.skype %></p>
+  <p>GitHub: <%= @user.git %></p>
+</div>

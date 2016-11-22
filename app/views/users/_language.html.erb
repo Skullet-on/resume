@@ -1,0 +1,11 @@
+<dl class="dl-horizontal riga">
+<% @user.languages.each do |i| %>
+  <dt class="primary"><%= i.name %></dt>
+  <dd>
+    <%= i.level %> 
+    <% if can? :edit, @user %> 
+      <%= link_to "Destroy", language_path(i), method: 'delete', data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'position_right' %>
+    <% end %>   
+  </dd>
+<% end %>
+</dl>

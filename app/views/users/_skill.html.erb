@@ -1,0 +1,26 @@
+<table class="table">
+      <thead>
+        <tr>
+          <th>Technology</th>
+          <th>Years of Experience</th>
+          <th>Proficiency</th>
+          <% if can? :edit, @user %>
+            <th>Action</th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+      <% @user.skills.each do |i| %>
+        <tr>
+          <td><%= i.technology %></td>
+          <td><%= i.exp %></td>
+          <td><%= i.proficiency %></td>
+          <% if can? :edit, @user %>
+            <td>
+              <%= link_to "Edit", edit_skill_path(i), class: 'btn btn-primary btn-xs' %> <%= link_to "Destroy", skill_path(i), method: 'delete', data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger btn-xs' %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
