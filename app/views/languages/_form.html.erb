@@ -10,16 +10,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :level %><br>
-    <%= f.text_field :level %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Language: <%= f.text_field :name, class: "form-control" %></td>
+        <td>Level:
+        <%= f.select :level,
+            options_for_select(['basic','good','advanced'], params[:level]),
+            {}, { :class => 'form-control span3 controls controls-row' } %></td>
+        <td><br><%= f.submit "Accept", class: "form-control" %></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

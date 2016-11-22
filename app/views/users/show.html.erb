@@ -1,65 +1,97 @@
-<%- model_class = User -%>
-<%- model_class = Skill -%>
-<div class="container-fluid bg-1 text-center">
-  <h3>Who Am I?</h3>
-  <%= image_tag @user.image.url(:thumb), class: "img-circle" %>
-  <h3>I'm a <%= @user.first_name %> <%= @user.last_name %></h3>
-</div>
+<div class="container-fluid bg-1">
+  <br>
+  <div class="row content">
+    <div class="col-sm-3">
+      <% if @user.image_file_name %>
+        <%= image_tag @user.image.url(:large), class: "img-thumbnail" %>
+      <% else %>
+        <%= image_tag "ava.jpeg", size: "300", class: "img-thumbnail" %>
+      <% end %>
+      <hr>
+      <ul class="nav nav-pills nav-stacked panel">
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#employ">Employment History</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#courses">Courses and certificates</a></li>
+        <li><a href="#languages">Languages</a></li>
+      </ul>
+    </div>
 
-<div class="container-fluid bg-2">
-  <h3 class="text-center">Skills</h3>
-  <div class="container">
-    <%= render partial: "skill" %>
-  <% if can? :edit, @user %>
-    <%= render partial: "skills/form" %>
-  <% end %>
+    <div class="col-sm-9" id="name">
+        <div class="panel-group">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+                <hr>
+                <dl class="dl-horizontal">
+                  <dt class="primary">Birthday</dt>
+                  <dd><%= @user.birthday.strftime("%d  %B  %Y") if @user.birthday %></dd>
+                  <dt class="primary">City</dt>
+                  <dd><%= @user.city %></dd>
+                </dl>
+                <a data-toggle="collapse" href="#collapse1">More information</a>
+              </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="container-fluid">
+                <dl class="dl-horizontal">
+                  <dt class="primary">Email</dt>
+                  <dd><%= @user.email %></dd>
+                  <dt class="primary">Phone</dt>
+                  <dd>(<%= @user.phone.delete(" ")[0..2] if @user.phone %>) <%= @user.phone.delete(" ")[3..99] if @user.phone %></dd>
+                  <dt class="primary">Skype</dt>
+                  <dd><%= @user.skype %></dd>
+                  <dt class="primary">Git</dt>
+                  <dd><%= @user.git %></dd>
+                </dl>
+                <dl class="dl-horizontal">
+                  <dt class="primary">Country</dt>
+                  <dd><%= @user.country %></dd>
+                  <dt class="primary">City</dt>
+                  <dd><%= @user.city %></dd>
+                </dl>
+              </div>
+            </div>
+
+          </div>
+          <div class="panel panel-default white" id="skills">
+            <h3 class="text-center">Skills</h3>
+            <%= render partial: "skill" %>
+            <% if can? :edit, @user %>
+              <%= render partial: "skills/form" %>
+            <% end %>
+          </div>
+          <div class="panel white" id="employ">
+            <h3 class="text-center">Employment History</h3>
+            <%= render partial: "employ" %>
+            <% if can? :edit, @user %>
+              <%= link_to 'Add Work', new_employ_path, class: "btn btn-default btn-xs" %><br>
+            <% end %>
+          </div>
+          <div class="panel white" id="education">
+            <h3 class="text-center">Education</h3>
+            <%= render partial: "education" %>
+            <% if can? :edit, @user %>
+              <%= link_to 'Add Education', new_education_path, class: "btn btn-default btn-xs" %><br>
+            <% end %>
+          </div>
+          <div class="panel white" id="courses">
+            <h3 class="text-center">Courses and Certificates</h3>
+            <%= render partial: "course" %>
+            <% if can? :edit, @user %>
+              <%= link_to 'Add Course', new_course_path, class: "btn btn-default btn-xs" %><br>
+            <% end %>
+          </div>
+          <div class="panel white" id="languages">
+            <h3 class="text-center">Languages</h3>
+            <%= render partial: "language" %>
+            <% if can? :edit, @user %>
+              <%= render partial: "languages/form" %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+
   </div>
-</div>
-
-<div class="container-fluid bg-3">
-  <h3 class="text-center">Employment History</h3>
-  <div class="container">
-    <%= render partial: "employ" %>
-    <% if can? :edit, @user %>
-      <%= link_to 'Add Work', new_employ_path, class: "form-control" %><br>
-    <% end %>
-  </div>
-</div>
-
-<div class="container-fluid bg-2">
-  <h3 class="text-center">Education</h3>
-  <div class="container">
-    <%= render partial: "education" %>
-    <% if can? :edit, @user %>
-      <%= link_to 'Add Education', new_education_path, class: "form-control" %><br>
-    <% end %>
-  </div>
-</div>
-
-<div class="container-fluid bg-3">
-  <h3 class="text-center">Courses and Certificates</h3>
-  <div class="container">
-    <%= render partial: "course" %>
-    <% if can? :edit, @user %>
-      <%= link_to 'Add Course', new_course_path, class: "form-control" %><br>
-    <% end %>
-  </div>
-</div>
-
-<div class="container-fluid bg-2">
-  <h3 class="text-center">Languages</h3>
-  <div class="container">
-    <%= render partial: "language" %>
-    <% if can? :edit, @user %>
-      <%= link_to 'Add Language', new_language_path, class: "form-control" %><br>
-    <% end %>
-  </div>
-</div>
-
-<div class="container-fluid bg-3">
-  <h3>How To Find Me?</h3>
-  <p>Phone: <%= @user.phone %></p>
-  <p>Email: <%= @user.email %></p>
-  <p>Skype: <%= @user.skype %></p>
-  <p>GitHub: <%= @user.git %></p>
 </div>

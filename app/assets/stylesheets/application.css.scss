@@ -18,7 +18,7 @@
 @import "devise_bootstrap_views";
 
 body {
-   background-color: #42f4ce;
+   background-color: #75adea;
 }
 /* Add a dark background color with a little bit see-through */ 
 .navbar {
@@ -27,6 +27,8 @@ body {
     border: 0;
     font-size: 11px !important;
     opacity:0.9;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 /* Add a gray color to all navbar links */

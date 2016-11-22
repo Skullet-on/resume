@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @skill = Skill.new
+    @language = Language.new
   end
 
   def edit

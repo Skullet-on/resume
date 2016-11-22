@@ -16,8 +16,11 @@
       <tr>
         <td>Technology: <%= f.text_field :technology, class: "form-control" %></td>
         <td>Years of Experience: <%= f.number_field :exp, class: "form-control" %></td>
-        <td>Proficiency: <%= f.text_field :proficiency, class: "form-control" %></td>
-        <td><br><%= f.submit "Add new", class: "form-control" %></td>
+        <td>Proficiency:
+        <%= f.select :proficiency,
+            options_for_select(['basic','good','advanced'], params[:proficiency]),
+            {}, { :class => 'form-control span3 controls controls-row' } %></td>
+        <td><br><%= f.submit "Accept", class: "form-control" %></td>
       </tr>
     </tbody>
   </table>

@@ -9,11 +9,20 @@
   float: right;
 }
 dl {
-  background-color: #999;
+  background-color: #fff;
 }
 dt {
   background-color: #555;
 }
 dd {
-  background-color: #999;
+  background-color: #fff;
+  color: #000;
+}
+.white { 
+    background-color: #ffffff; /* White */
+    //background: linear-gradient(to top, #000000, #75adea);
+    color: #000000;
+}
+.affix {
+  top: 20px;
 }
