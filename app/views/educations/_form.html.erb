@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :date_start %><br>
-    <%= f.date_select :date_start %>
+    <%= f.date_select :date_start, :start_year => 1920, :end_year => Date.current.year %>
   </div>
   <div class="field">
     <%= f.label :date_finish %><br>
-    <%= f.date_select :date_finish %>
+    <%= f.date_select :date_finish, :start_year => 1920, :end_year => Date.current.year %>
   </div>
   <div class="actions">
     <%= f.submit %>
