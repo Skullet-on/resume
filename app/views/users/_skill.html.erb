@@ -15,7 +15,7 @@
           <td><%= i.technology %></td>
           <td><%= i.exp %></td>
           <td><%= i.proficiency %></td>
-          <% if can? :edit, @user %>
+          <% if can? :update, i %>
             <td>
               <%= link_to "Edit", edit_skill_path(i), class: 'btn btn-primary btn-xs' %> <%= link_to "Destroy", skill_path(i), method: 'delete', data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger btn-xs' %>
             </td>

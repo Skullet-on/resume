@@ -4,7 +4,7 @@
     <dd><%= i.title %></dd>
     <dt class="primary">Awarded</dt>
     <dd><%= i.award %></dd>
-    <% if can? :edit, @user %>
+    <% if can? :update, i %>
       <dt class="primary">Action</dt>
       <dd><%= link_to "Edit", edit_course_path(i), class: 'btn btn-primary btn-xs' %>
       <%= link_to "Destroy", course_path(i), method: 'delete', data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger btn-xs' %></dd>
