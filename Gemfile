@@ -27,7 +27,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'devise-bootstrap-views'
-gem "paperclip-dropbox"
+gem 'paperclip'
 gem 'cancan'
 gem 'compass-rails'
 

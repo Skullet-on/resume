@@ -4,13 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :image, styles: { large: "600x600#", medium: "300x300#", small: "150x150#", thumb: "50x50#" },
-    :storage => :dropbox,
-    :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
-    :dropbox_options => {:path =>proc {|style| "images/#{id}/#{image.original_filename}"}}
-
+  has_attached_file :image, styles: { large: "600x600#", medium: "300x300#", small: "150x150#", thumb: "50x50#" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-    
+
  
 
 
